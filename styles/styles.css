@@ -80,9 +80,9 @@
   }
 }
 
-  @media (width >= 1600px) {
+  @media (width >= 1170px) {
     :root {
-      --main-width: 1600px;
+      --main-width: 1170px;
     }
   }
 
