@@ -5,7 +5,7 @@ export default async function decorate(block) {
   searchDiv.className = 'search-wrapper';
   const searchField = document.createElement('input');
   searchField.type = 'text';
-  searchField.placeholder = 'Search Broward.org';
+  searchField.placeholder = 'Search';
   searchDiv.append(searchField);
 
   // TODO - allow for static image

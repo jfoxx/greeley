@@ -16,11 +16,12 @@
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
-  --link-color: #3b63fb;
+  --link-color: var(--color-blue);
   --link-hover-color: #1d3ecf;
   --light-gray: #eaeaea;
   --dark-blue:#00304c;
   --med-blue: #0277bd;
+  --color-blue: #005ea5;
   --light-blue: #33b5e5;
   --orange: #C50;
   --light-orange: #FF974C;
@@ -45,6 +46,7 @@
 
   /* nav height */
   --nav-height: 64px;
+  --main-width: 1600px;
 }
 
 /* fallback fonts */
@@ -125,6 +127,7 @@ h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
+
 
 p,
 dl,
@@ -297,6 +300,49 @@ main .section.dark {
   }
 }
 
+/* stylelint-disable no-descending-specificity */
+
+
+body.homepage {
+  main > .section {
+    margin: 0;
+    padding-bottom: 30px;
+  }
+
+  main > .section > div {
+    max-width: var(--main-width);
+    margin: auto;
+    padding: 0;
+  }
+
+  main > .section > div.default-content-wrapper {
+    max-width: 100%;
+  }
+  
+  main > .section:first-of-type {
+    margin-top: 0;
+  }
+  
+  @media (width >= 900px) {
+    main > .section > div {
+      padding: 0;
+    }
+  }
+
+  h2 {
+    background-color: var(--color-blue);
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-family: var(--body-font-family);
+    font-size: var(--heading-font-size-l);
+    font-weight: normal;
+    padding: 5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+}
+
 
 body.interior {
   main > .section > div.default-content-wrapper {
@@ -304,7 +350,6 @@ body.interior {
   }
 }
 
-/* stylelint-disable no-descending-specificity */
 
 /* Breadcrumbs */
 nav.breadcrumbs {
