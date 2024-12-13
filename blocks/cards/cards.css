@@ -7,9 +7,32 @@
   grid-gap: 24px;
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
+@media (width >= 1050px) {
+  .cards > ul {
+    display: flex;
+
+    >li {
+      width: 30%;
+    }
+  }
+}
+
+.cards > ul > li > a {
   background-color: var(--background-color);
+  display: block;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  h3 {
+    padding: 0 15px;
+  }
+
+  p {
+    padding: 0 15px;
+    color: var(--text-color);
+  }
 }
 
 .cards .cards-card-body {

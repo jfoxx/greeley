@@ -17,7 +17,7 @@
   --dark-color: #505050;
   --text-color: #131313;
   --link-color: var(--color-blue);
-  --link-hover-color: #1d3ecf;
+  --link-hover-color: #023d6a;
   --light-gray: #eaeaea;
   --dark-blue:#00304c;
   --med-blue: #0277bd;
@@ -80,11 +80,11 @@
   }
 }
 
-@media (width >= 1600px) {
-  :root {
-    --main-width: 1600px;
+  @media (width >= 1600px) {
+    :root {
+      --main-width: 1600px;
+    }
   }
-}
 
 body {
   display: none;
