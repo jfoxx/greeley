@@ -6,6 +6,13 @@ export default function decorate(block) {
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
     while (row.firstElementChild) li.append(row.firstElementChild);
+    const a = document.createElement('a');
+    const liContent = li.innerHTML;
+    const cardLink = li.querySelector('a').href;
+    a.innerHTML = liContent;
+    a.href = cardLink;
+    li.textContent = '';
+    li.append(a);
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
       else div.className = 'cards-card-body';
