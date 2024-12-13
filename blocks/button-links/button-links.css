@@ -1,6 +1,6 @@
 .button-links {
     ul {
-        columns: 3;
+        columns: 1;
         margin: 0;
         padding: 0;
         list-style: none;
@@ -31,6 +31,7 @@
 
                 &:hover {
                     text-decoration: none;
+                    color: var(--color-blue);
                     
                     .icon {
                         animation: bounce 0.5s infinite ease-in-out;
@@ -40,6 +41,18 @@
             }
         }
     }
+
+    @media (width >= 650px) {
+        ul {
+          columns: 2;
+        }
+      }
+
+    @media (width >= 1000px) {
+        ul {
+          columns: 3;
+        }
+      }
 }
 
 
