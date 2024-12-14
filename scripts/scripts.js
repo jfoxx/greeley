@@ -11,6 +11,7 @@ import {
   loadSections,
   loadCSS,
   sampleRUM,
+  getMetadata,
 } from './aem.js';
 
 /**
@@ -67,6 +68,14 @@ function applySectionLayout(element) {
   layouts.forEach((i) => {
     groupSectionColumns(i);
   });
+}
+
+function structureTemplate(main) {
+  const template = getMetadata('template');
+  if (template === 'interior') {
+    const aside = document.createElement('aside');
+    main.after(aside);
+  }
 }
 
 /**
@@ -165,6 +174,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  structureTemplate(main);
   decorateBlocks(main);
   applySectionLayout(main);
 }
