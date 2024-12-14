@@ -2,3 +2,4 @@ helix-importer-ui
 scripts/ffetch.js
 blocks/header/header.css
 /tools/importer/import.js
+blocks/form
