@@ -25,6 +25,23 @@ function decorateIcon(span, prefix = '') {
   span.style.maskImage = `url(${iconPath})`;
 }
 
+function groupSectionColumns(parent) {
+  const layout = parent.getAttribute('data-layout');
+  const layoutItems = layout.split('-');
+  const children = [...parent.children];
+  const div1 = document.createElement('div');
+  const div2 = document.createElement('div');
+  children.forEach((i) => {
+    if (children.indexOf(i) + 1 <= layoutItems[1]) {
+      div1.append(i);
+    } else {
+      div2.append(i);
+    }
+  });
+  parent.textConent = '';
+  parent.append(div1, div2);
+}
+
 export default function convertExcelDate(value) {
   const excelStartDate = new Date(1900, 0, 1);
   // Subtract 1 because Excel counts 1900-01-01 as 1, not 0
@@ -42,6 +59,13 @@ function decorateIcons(element, prefix = '') {
   const icons = [...element.querySelectorAll('span.icon')];
   icons.forEach((span) => {
     decorateIcon(span, prefix);
+  });
+}
+
+function applySectionLayout(element) {
+  const layouts = [...element.querySelectorAll('div[data-layout]')];
+  layouts.forEach((i) => {
+    groupSectionColumns(i);
   });
 }
 
@@ -142,6 +166,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  applySectionLayout(main);
 }
 
 /**
