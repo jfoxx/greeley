@@ -1,0 +1,11 @@
+.promo-box {
+    a.button {
+        border: 1px solid #d58512;
+        color: #985f0d;
+        background-color: white;
+        border-radius: 6px;
+        white-space: wrap;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
