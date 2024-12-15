@@ -440,8 +440,7 @@ nav.breadcrumbs {
 
 body.interior.appear {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  flex-flow: column wrap;
 
 
   main {
