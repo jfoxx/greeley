@@ -96,7 +96,6 @@ function structureTemplate(main) {
   if (template === 'interior') {
     const aside = document.createElement('aside');
     main.after(aside);
-    loadSidebar(aside);
   }
 }
 
@@ -234,11 +233,17 @@ async function loadEager(doc) {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
+  const aside = doc.querySelector('aside');
+
   await loadSections(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
+
+  if (aside) {
+    loadSidebar(aside);
+  }
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
