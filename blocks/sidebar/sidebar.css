@@ -1,0 +1,12 @@
+aside.sidebar-wrapper {
+    img {
+        width: 100%;;
+        height: auto;
+    }
+}
+
+.category-banner {
+    font-size: var(--heading-font-size-l);
+    display: inline-block;
+    color: var(--color-blue);
+}
