@@ -132,7 +132,7 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   } else {
     const homeLink = document.createElement('a');
-    homeLink.href = "/";
+    homeLink.href = '/';
     homeLink.innerHTML = navBrand.innerHTML;
     navBrand.textContent = '';
     navBrand.append(homeLink);
