@@ -159,14 +159,14 @@ const runSa11y = async () => {
   loadJsFile('https://cdn.jsdelivr.net/combine/gh/ryersondmp/sa11y@3.2.2/dist/js/lang/en.umd.js,gh/ryersondmp/sa11y@3.2.2/dist/js/sa11y.umd.min.js', setupSa11y);
 };
 
-const sk = document.querySelector('helix-sidekick');
+const sk = document.querySelector('aem-sidekick');
 if (sk) {
   // sidekick already loaded
   sk.addEventListener('custom:runSa11y', runSa11y);
 } else {
   // wait for sidekick to be loaded
   document.addEventListener('sidekick-ready', () => {
-    document.querySelector('helix-sidekick')
+    document.querySelector('aem-sidekick')
       .addEventListener('custom:runSa11y', runSa11y);
   }, { once: true });
 }
