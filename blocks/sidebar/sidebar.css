@@ -1,0 +1,15 @@
+aside.sidebar-wrapper {
+    img {
+        width: 100%;;
+        height: auto;
+    }
+}
+
+.category-banner {
+    font-size: var(--heading-font-size-l);
+    background-color: #7c7c7c;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: white;
+}

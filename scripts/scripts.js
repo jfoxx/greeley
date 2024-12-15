@@ -5,8 +5,10 @@ import {
   decorateButtons,
   decorateSections,
   decorateBlocks,
+  decorateBlock,
   decorateTemplateAndTheme,
   waitForFirstImage,
+  loadBlock,
   loadSection,
   loadSections,
   loadCSS,
@@ -26,6 +28,13 @@ function decorateIcon(span, prefix = '') {
   span.style.maskImage = `url(${iconPath})`;
 }
 
+async function loadSidebar(aside) {
+  const sidebarBlock = buildBlock('sidebar', '');
+  aside.append(sidebarBlock);
+  decorateBlock(sidebarBlock);
+  return loadBlock(sidebarBlock);
+}
+
 function groupSectionColumns(parent) {
   const layout = parent.getAttribute('data-layout');
   const layoutItems = layout.split('-');
@@ -41,6 +50,18 @@ function groupSectionColumns(parent) {
   });
   parent.textConent = '';
   parent.append(div1, div2);
+}
+
+function categoryLabel(main) {
+  const template = getMetadata('template');
+  if (template === 'interior') {
+    const category = getMetadata('category');
+    const bannerText = `City of Greeley ${category}`;
+    const banner = document.createElement('div');
+    banner.className = 'category-banner';
+    banner.textContent = bannerText;
+    main.querySelector('h1').before(banner);
+  }
 }
 
 export default function convertExcelDate(value) {
@@ -75,6 +96,7 @@ function structureTemplate(main) {
   if (template === 'interior') {
     const aside = document.createElement('aside');
     main.after(aside);
+    loadSidebar(aside);
   }
 }
 
@@ -189,6 +211,7 @@ async function loadEager(doc) {
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
+    categoryLabel(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
   }

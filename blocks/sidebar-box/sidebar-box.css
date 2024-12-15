@@ -1,0 +1,36 @@
+.sidebar-box {
+    border: 1px solid var(--color-blue);
+    border-radius: 6px;
+    padding: 0;
+
+    >div>div {
+        h2 {
+            background-color: var(--color-blue);
+            margin: 0;
+            color: white;
+            font-size: var(--heading-font-size-s);
+            padding: 10px
+        }
+
+        p {
+            padding: 0 10px;
+        }
+    }
+
+    ul:has(a[href*='https://www.facebook.com']){
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0 10px;
+
+        li {
+            margin-right: 25px;
+            
+            .icon { 
+                background-color: var(--color-blue);
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
